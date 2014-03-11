@@ -65,6 +65,7 @@ executable weirdcanada
                , scotty >=0.6
                , blaze-html >=0.6
                , blaze-markup
+               , blaze-builder
                , http-types ==0.8.*
                , resourcet
                , text
@@ -72,15 +73,13 @@ executable weirdcanada
                , wai >=2.0.0
                , wai-extra
                , wai-middleware-static
-               , wai-session
-               , wai-session-clientsession
-               , clientsession
                , transformers ==0.3.0.0
                , time
                , containers
                , aeson
                , uuid
                , bytestring >=0.10.0
+               , postgresql-simple
 
   -- Directories containing source files.
   -- hs-source-dirs:
