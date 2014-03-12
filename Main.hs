@@ -9,11 +9,11 @@ import           Network.Wai.Middleware.Static        (staticPolicy, addBase, no
 import           Database.PostgreSQL.Simple           (ConnectInfo(..), defaultConnectInfo, connect)
 
 import           Controllers.Home                     (home)
-import           Types                                (toScotty, WcConfig(..))
+import           Types                                (toScotty, WCConfig(..))
 
 
-defaultConfig :: WcConfig
-defaultConfig = WcConfig defaultConnectInfo {
+defaultConfig :: WCConfig
+defaultConfig = WCConfig defaultConnectInfo {
                                      connectUser = "weirdcanada"
                                    , connectPassword = "weirdcanada"
                                    , connectDatabase = "weirdcanada"

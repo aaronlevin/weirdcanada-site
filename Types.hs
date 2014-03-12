@@ -3,8 +3,8 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 module Types (
-             WcConfig(..),
-             WcM,
+             WCConfig(..),
+             WCM,
              liftScotty,
              toScotty
 )	where
@@ -17,16 +17,16 @@ import           Control.Monad.IO.Class (MonadIO)
 import           Control.Monad.Reader       (ReaderT, runReaderT)
 import           Database.PostgreSQL.Simple (ConnectInfo(..))
 
-data WcConfig = WcConfig { dbConfig :: ConnectInfo }
+data WCConfig = WCConfig { dbConfig :: ConnectInfo }
 
-newtype WcM a = WcM { runWc :: ReaderT WcConfig ScottyM a }
-               deriving (Monad, Functor, MonadReader WcConfig, MonadIO)
+newtype WCM a = WCM { runWC :: ReaderT WCConfig ScottyM a }
+               deriving (Monad, Functor, MonadReader WCConfig, MonadIO)
 
 class Monad m => MonadScotty m where
   liftScotty :: ScottyM a -> m a
 
-instance MonadScotty WcM where
-  liftScotty = WcM . lift
+instance MonadScotty WCM where
+  liftScotty = WCM . lift
 
-toScotty :: WcConfig -> WcM a -> ScottyM a
-toScotty c m = runReaderT (runWc m) c
+toScotty :: WCConfig -> WCM a -> ScottyM a
+toScotty c m = runReaderT (runWC m) c

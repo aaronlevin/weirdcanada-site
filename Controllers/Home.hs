@@ -10,9 +10,9 @@ import           Control.Monad.Reader       (ask)
 import           Control.Monad.Trans        (liftIO)
 
 import           Views.Home                 (homeView)
-import           Types                      (WcM, liftScotty, dbConfig)
+import           Types                      (WCM, liftScotty, dbConfig)
 
-home :: WcM ()
+home :: WCM ()
 home = do
     config <- ask
     conn <- liftIO . connect $ dbConfig config
