@@ -14,3 +14,7 @@ cabal run
 ```
 
 The initial install will take a while but after that cabal is smart at incremental compilation.
+
+## Dependencies
+* ghc-7.6.3
+* postgresql-9.3
